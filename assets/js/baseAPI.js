@@ -9,14 +9,15 @@ $.ajaxPrefilter(function (option) {
           option.headers = {
                Authorization: localStorage.getItem('token') || []
           }
-          //全局统一挂载complete回调函数
-          //无论成功或失败都会调用complete函数
-          option.complete = function (res) {
-               if (res.responseJSON.status === 1 && res.responseJSON.message == "身份认证失败！") {
-                    //清空localStroage里的token
-                    localStorage.removeItem('token')
-                    location.href = 'login.html'
-               }
+     }
+
+     //全局统一挂载complete回调函数
+     //无论成功或失败都会调用complete函数
+     option.complete = function (res) {
+          if (res.responseJSON.status === 1 && res.responseJSON.message == "身份认证失败！") {
+               //清空localStroage里的token
+               localStorage.removeItem('token')
+               location.href = 'login.html'
           }
      }
 })
