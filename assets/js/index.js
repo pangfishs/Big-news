@@ -19,6 +19,8 @@ $(function () {
             layer.close(index);
         });
     })
+
+    
 })
 
 // 调用用户的基本信息方法
@@ -41,7 +43,7 @@ function renderAvatar(user) {
     $('#welcome').html('欢迎' + name)
     //渲染图片头像
     if (user.user_pic !== null) {
-        $('.').attr('src', user.user_pic).show()
+        $('.layui-nav-img').attr('src', user.user_pic).show()
         $('.text-avatar').hide()
     } else {
         $('.layui-nav-img').hide()
